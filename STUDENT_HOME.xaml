@@ -1,0 +1,900 @@
+<Window x:Class="Library_System_Draft.STUDENT_HOME"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_System_Draft"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True"
+        Title="STUDENT_HOME" Height="600" Width="900" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" CornerRadius="15 15 15 15" Background="#F6FAFF" BorderBrush="Transparent"/>
+        <Image x:Name="closeButton" Source="\IMAGES\closeBlue.png" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 10 0" Height="30" Width="auto" MouseLeftButtonDown="closeButton_MouseLeftButtonDown"/>
+        <Image x:Name="minimizeButton" Source="\IMAGES\minimizeBlue.png" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 12 45 0" Height="26" Width="auto" MouseLeftButtonDown="minimizeButton_MouseLeftButtonDown"/>
+        <Grid x:Name="mainPanel" Margin="65,0,0,0">
+            <Grid.BitmapEffect>
+                <BlurBitmapEffect x:Name="blurBitmapEffect" Radius="0"/>
+            </Grid.BitmapEffect>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="113*"/>
+                <RowDefinition Height="487*"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="homeView" Grid.RowSpan="2">
+                <TextBlock Text="Dashboard" Style="{StaticResource welcomeTitle}" Foreground="#4255FF" Margin="0 30 0 0" FontSize="30" FontWeight="Normal"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Grid.Column="0" Width="300" Height="200" Fill="#6eb1d6" Margin="40 20 0 0" HorizontalAlignment="Left" RadiusX="15" RadiusY="15"/>
+                            <Grid Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0">
+                                    <TextBlock x:Name="txtstudentName" Text="Name: " Style="{StaticResource welcomeTitle}" Padding="0 0 0 10"/>
+                                    <TextBlock x:Name="txtstudentID" Text="ID #: " Style="{StaticResource welcomeTitle}" Padding="0 0 0 10"/>
+                                    <TextBlock x:Name="txtstudentCourse" Text="Course: " Style="{StaticResource welcomeTitle}" Padding="0 0 0 10"/>
+                                    <TextBlock x:Name="txtstudentYear" Text="Year: " Style="{StaticResource welcomeTitle}" Padding="0 0 0 10"/>
+                                </StackPanel>
+                            </Grid>
+                            <Rectangle Grid.Column="1" Width="220" Height="200" Fill="#D6A1FF" Margin="0 20 0 0" HorizontalAlignment="Left" RadiusX="15" RadiusY="15"/>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock Text="Borrow Counts" Style="{StaticResource welcomeTitle}" TextAlignment="Center" Padding="0 0 0 0"/>
+                                    <TextBlock x:Name="borrowCount" Text="~" Style="{StaticResource welcomeTitle}" TextAlignment="Center" Padding="0 20 0 0" FontSize="30"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Grid.Column="0" Width="260" Height="200" Fill="#FE98AB" Margin="40 40 0 0" HorizontalAlignment="Left" RadiusX="15" RadiusY="15"/>
+
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="Recent Borrowed" Style="{StaticResource welcomeTitle}" TextAlignment="Center" Padding="0 0 0 0"/>
+                                <TextBlock x:Name="recBorrow" Text="~" Style="{StaticResource welcomeTitle}" TextAlignment="Center" Padding="0 20 0 0" FontSize="30"/>
+                            </StackPanel>
+
+                            <Rectangle Grid.Column="1" Width="260" Height="200" Fill="#B7EA84" Margin="20 40 0 0" HorizontalAlignment="Left" RadiusX="15" RadiusY="15"/>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                    <TextBlock Text="Recent Returned" Style="{StaticResource welcomeTitle}" TextAlignment="Center" Padding="0 0 0 0"/>
+                                    <TextBlock x:Name="recReturn" Text="~" Style="{StaticResource welcomeTitle}" TextAlignment="Center" Padding="0 20 0 0" FontSize="30"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                    </StackPanel>
+                    <Rectangle Grid.Column="1" Width="1" Fill="DimGray" HorizontalAlignment="Left" Margin="0 0 0 -50"/>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Recent Added Books" Style="{StaticResource textID_Pass}" Foreground="DimGray" FontWeight="Normal" Margin="0 5"/>
+                        <Rectangle Height="2" Fill="DimGray" Margin="10 5"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <Grid x:Name="borrowView" Grid.RowSpan="2" Visibility="Hidden">
+                <StackPanel x:Name="borrowDefView">
+                    <StackPanel>
+                        <TextBlock Text="Borrow Books" Style="{StaticResource welcomeTitle}" Foreground="#4255FF" Margin="0 30 0 0" FontSize="30" FontWeight="Normal"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 20 40 10" CornerRadius="16" Height="32" Background="Transparent">
+                                <Grid Margin="7">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="\IMAGES\search.png" Width="20" Opacity="0.6"/>
+                                    <TextBox Background="#F6FAFF" Grid.Column="1" x:Name="txtBookSearch" Style="{StaticResource textBox}" TextChanged="txtBookSearch_TextChanged"/>
+                                </Grid>
+                            </Border>
+                            <Button Grid.Column="1" Name="borrowButton" Content="Borrow" Style="{StaticResource allButton}" Height="32" Margin="120 8 40 0" Click="borrowButton_Click">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0,.5" StartPoint="0.5,0">
+                                        <GradientStop Color="Blue"/>
+                                        <GradientStop Color="Blue" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                        <Separator Height="20" Background="Transparent"/>
+                        <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="bookDataGrid" Height="437" Margin="40 0 40 0" SelectionChanged="bookDataGrid_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Book ID#" Binding="{Binding BookId}" CanUserResize="False" Width="auto"/>
+                                <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Book_Title}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="ISBN" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Book_ISBN}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Quantity" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Book_Quantity}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Author ID" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding AuthID}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Author" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Book_Author}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Status" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Book_Status}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+            <Grid x:Name="returnView" Visibility="Hidden" Grid.RowSpan="2">
+                <StackPanel x:Name="returnDefView">
+                    <StackPanel>
+                        <TextBlock Text="Return Books" Style="{StaticResource welcomeTitle}" Foreground="#4255FF" Margin="0 30 0 0" FontSize="30" FontWeight="Normal"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 20 40 10" CornerRadius="16" Height="32" Background="Transparent">
+                                <Grid Margin="7">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="\IMAGES\search.png" Width="20" Opacity="0.6"/>
+                                    <TextBox Background="#F6FAFF" Grid.Column="1" x:Name="txtRBookSearch" Style="{StaticResource textBox}" TextChanged="txtRBookSearch_TextChanged"/>
+                                </Grid>
+                            </Border>
+                            <Button Grid.Column="1" Name="returnButton" Content="Return" Style="{StaticResource allButton}" Height="32" Margin="120 8 40 0" Click="returnButton_Click">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0,.5" StartPoint="0.5,0">
+                                        <GradientStop Color="Blue"/>
+                                        <GradientStop Color="Blue" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                        <Separator Height="20" Background="Transparent"/>
+                        <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="returnDataGrid" Height="437" Margin="40 0 40 0" SelectionChanged="returnDataGrid_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Borrowed ID#" Binding="{Binding BorrowedId}" CanUserResize="False" Width="auto"/>
+                                <DataGridTemplateColumn Header="Book ID#" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding ReturnBookID}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Date Time" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding ReturnDate}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding ReturnBook_Title}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="ISBN" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding ReturnBook_ISBN}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Author" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding ReturnBook_Author}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+            <Grid x:Name="histView" Visibility="Hidden" Grid.RowSpan="2">
+                <StackPanel x:Name="histDefView">
+                    <StackPanel>
+                        <TextBlock Text="Book History" Style="{StaticResource welcomeTitle}" Foreground="#4255FF" Margin="0 30 0 0" FontSize="30" FontWeight="Normal"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 20 40 10" CornerRadius="16" Height="32" Background="Transparent">
+                                <Grid Margin="7">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="\IMAGES\search.png" Width="20" Opacity="0.6"/>
+                                    <TextBox Background="#F6FAFF" Grid.Column="1" x:Name="txtHistSearch" Style="{StaticResource textBox}" TextChanged="txtHistSearch_TextChanged"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Separator Height="20" Background="Transparent"/>
+                        <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="historyDataGrid" Height="437" Margin="40 0 40 0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Borrowed ID#" Binding="{Binding HistoryBorrowedId}" CanUserResize="False" Width="auto"/>
+                                <DataGridTemplateColumn Header="Book ID#" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding HistoryBookID}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding HistoryBook_Title}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="ISBN" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding HistoryBook_ISBN}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Author" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding HistoryBook_Author}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Borrowed Date" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding HistoryBook_Borrow_Date}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Returned Date" IsReadOnly="True" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding HistoryBook_Return_Date}" Margin="0 0 10 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+
+
+        </Grid>
+        <Grid x:Name="navPanel" HorizontalAlignment="Left" Width="65" Background="#4255FF">
+            <StackPanel x:Name="stPanel">
+                <Grid x:Name="profileGridButton" Grid.Row="0" Height="100" MouseEnter="profileGridButton_MouseEnter" MouseLeave="profileGridButton_MouseLeave">
+                    <Ellipse Width="40" Height="40" Fill="#F6FAFF" Margin="12.5 25 12.5 25" HorizontalAlignment="Left"/>
+                    <Grid Height="40" Width="40" HorizontalAlignment="Left" Margin="12.5 30">
+                        <TextBlock x:Name="txtFLetName" Text="?" TextAlignment="Center" FontFamily="Fredoka" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="SemiBold" Foreground="#4255FF"/>
+                    </Grid>
+                    <TextBlock x:Name="txtFName" Grid.Row="1" Grid.Column="0" Width="200" TextWrapping="Wrap" Margin="0 15 0 0" Height="50" Text="First Name" FontSize="18" Foreground="#F6FAFF" Style="{StaticResource textID_Pass}" Padding="73 12.5 0 0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal"/>
+                    <TextBlock x:Name="txtLName" Grid.Column="0" Width="200" TextWrapping="Wrap" Margin="0 35 0 0" Height="50" Text="Last Name" FontSize="12" Foreground="#F6FAFF" Style="{StaticResource textID_Pass}" Padding="73 12.5 0 0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal"/>
+                    <TextBlock x:Name="txtID" Text="12345678" Grid.Column="0" VerticalAlignment="Bottom" FontSize="14" FontStyle="Italic" Foreground="#F6FAFF" Style="{StaticResource textID_Pass}" Padding="73 0 0 0" FontWeight="Normal" Margin="0 0 0 17"/>
+                    <Rectangle x:Name="justRecinProf" Width="200" Fill="Transparent">
+                        <Rectangle.Triggers>
+                            <EventTrigger RoutedEvent="Rectangle.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="mainPanel" Storyboard.TargetProperty="Opacity" To="0.4" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Rectangle.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="mainPanel" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Rectangle.Triggers>
+                    </Rectangle>
+                </Grid>
+                <Rectangle Margin="2 20 2 0" Width="196" Height="2" Fill="#F6FAFF"/>
+                <Separator Height="20" Background="Transparent"/>
+                <Grid x:Name="dashboardGridButton" Grid.Row="1" Margin="0 0 0 0" Height="50" Background="#F6FAFF" MouseEnter="dashboardGridButton_MouseEnter" MouseLeave="dashboardGridButton_MouseLeave" MouseLeftButtonDown="dashboardGridButton_MouseLeftButtonDown">
+                    <Rectangle x:Name="dashboardRec" Width="2" Margin="0 3 0 3" Fill="#4255FF" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="txtDashboard" Grid.Row="1" Grid.Column="0" Margin="0 0 0 0" Height="50" Text="Dashboard" FontSize="18" Foreground="#4255FF" Style="{StaticResource textID_Pass}" Padding="73 12.5 0 0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonDown="dashboardGridButton_MouseLeftButtonDown" FontWeight="Normal">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtDashboard" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="dashboardTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtDashboard" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="dashboardTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+                    <TextBlock x:Name="dashboardTextBlock" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18 0 0 0" Height="30" Width="30" Background="Transparent" MouseLeftButtonDown="dashboardGridButton_MouseLeftButtonDown">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtDashboard" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="dashboardTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtDashboard" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="dashboardTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                            <Image x:Name="dashboardLogo" Source="\IMAGES\dashboardBlue.png"/>
+                    </TextBlock>
+                </Grid>
+                <Grid x:Name="borrowGridButton" Grid.Row="1" Margin="0 0 0 0" Height="50" MouseEnter="borrowGridButton_MouseEnter" MouseLeave="borrowGridButton_MouseLeave" MouseLeftButtonDown="borrowGridButton_MouseLeftButtonDown">
+                    <Rectangle x:Name="borrowRec" Width="2" Margin="0 3 0 3" Fill="#4255FF" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <TextBlock x:Name="txtBorrow" Grid.Row="1" Grid.Column="0" Margin="0 0 0 0" Height="50" Text="Borrow" FontSize="18" Foreground="White" Style="{StaticResource textID_Pass}" Padding="73 12.5 0 0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonDown="borrowGridButton_MouseLeftButtonDown" FontWeight="Normal">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtBorrow" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="borrowTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtBorrow" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="borrowTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+                    <TextBlock x:Name="borrowTextBlock" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18 0 0 0" Height="30" Width="30" Background="Transparent" MouseLeftButtonDown="borrowGridButton_MouseLeftButtonDown">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtBorrow" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="borrowTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtBorrow" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="borrowTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                            <Image x:Name="borrowLogo" Source="\IMAGES\borrow.png"/>
+                    </TextBlock>
+                </Grid>
+                <Grid x:Name="returnGridButton" Grid.Row="1" Margin="0 0 0 0" Height="50" MouseEnter="returnGridButton_MouseEnter" MouseLeave="returnGridButton_MouseLeave" MouseLeftButtonDown="returnGridButton_MouseLeftButtonDown">
+                    <Rectangle x:Name="returnRec" Width="2" Margin="0 3 0 3" Fill="#4255FF" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <TextBlock x:Name="txtReturn" Grid.Row="1" Grid.Column="0" Margin="0 0 0 0" Height="50" Text="Return" FontSize="18" Foreground="White" Style="{StaticResource textID_Pass}" Padding="73 12.5 0 0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonDown="returnGridButton_MouseLeftButtonDown" FontWeight="Normal">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtReturn" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="returnTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtReturn" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="returnTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+                    <TextBlock x:Name="returnTextBlock" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18 0 0 0" Height="30" Width="30" Background="Transparent" MouseLeftButtonDown="returnGridButton_MouseLeftButtonDown">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtReturn" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="returnTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtReturn" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="returnTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    <Image x:Name="returnLogo" Source="\IMAGES\return.png"/>
+                    </TextBlock>
+                </Grid>
+                <Grid x:Name="historyGridButton" Grid.Row="1" Margin="0 0 0 0" Height="50" MouseEnter="historyGridButton_MouseEnter" MouseLeave="historyGridButton_MouseLeave" MouseLeftButtonDown="historyGridButton_MouseLeftButtonDown">
+                    <Rectangle x:Name="historyRec" Width="2" Margin="0 3 0 3" Fill="#4255FF" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <TextBlock x:Name="txtHistory" Grid.Row="1" Grid.Column="0" Margin="0 0 0 0" Height="50" Text="History" FontSize="18" Foreground="White" Style="{StaticResource textID_Pass}" Padding="73 12.5 0 0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonDown="historyGridButton_MouseLeftButtonDown" FontWeight="Normal">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtHistory" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="historyTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtHistory" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="historyTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+                    <TextBlock x:Name="historyTextBlock" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18 0 0 0" Height="30" Width="30" Background="Transparent" MouseLeftButtonDown="returnGridButton_MouseLeftButtonDown">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtHistory" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="historyTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtHistory" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="historyTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    <Image x:Name="historyLogo" Source="\IMAGES\history.png"/>
+                    </TextBlock>
+                </Grid>
+                <Grid x:Name="logoutGridButton" Grid.Row="1" Margin="0 203 0 10" Height="50" MouseEnter="logoutGridButton_MouseEnter" MouseLeave="logoutGridButton_MouseLeave" MouseLeftButtonDown="logoutGridButton_MouseLeftButtonDown">
+                    <Rectangle x:Name="logoutRec" Width="2" Margin="0 3 0 3" Fill="#4255FF" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <TextBlock x:Name="txtLogOut" Grid.Row="1" Grid.Column="0" Margin="0 0 0 0" Height="50" Text="Logout" FontSize="18" Foreground="White" Style="{StaticResource textID_Pass}" Padding="73 12.5 0 0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonDown="logoutGridButton_MouseLeftButtonDown" FontWeight="Normal">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtLogOut" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="logoutTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtLogOut" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="logoutTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+                    <TextBlock x:Name="logoutTextBlock" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18 0 0 0" Height="30" Width="30" Background="Transparent" MouseLeftButtonDown="historyGridButton_MouseLeftButtonDown">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtLogOut" Storyboard.TargetProperty="Padding" To="83,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="logoutTextBlock" Storyboard.TargetProperty="Margin" To="28,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="navPanel" Storyboard.TargetProperty="Width" To="65" Duration="0:0:0.1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="txtLogOut" Storyboard.TargetProperty="Padding" To="73,12.5,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="logoutTextBlock" Storyboard.TargetProperty="Margin" To="18,0,0,0" Duration="0:0:0.1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                        <Image x:Name="logoutLogo" Source="\IMAGES\logout.png"/>
+                    </TextBlock>
+                </Grid>
+
+            </StackPanel>
+            <Rectangle Width="1" Fill="#AFAFAF" HorizontalAlignment="Right"/>
+        </Grid>
+    </Grid>
+</Window>
